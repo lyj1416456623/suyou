@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>商品分类</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+ 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<link rel="stylesheet" href="css/index.css"/>
+	<script src="js/inobounce.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/fastclick.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/goods1.js"></script>
+</head>
+<body>
+	<div id="animation"><img src="images/shuaxin.png"></div>
+	<div id="whole">
+		<div id="search_top">
+			<img id="location" src="images/5.png">
+      <img id="search" src="images/search1.png" style="border:1px solid #eee;border-radius:4px">
+      <img id="message" src="images/6.png">
+			<div id="message_No"></div>
+		</div>
+
+		<div id="main">
+			<div id="list_left">
+				<div class='menu_allsrot'>全部分类</div>
+				<ul id="menu">
+				</ul>
+			</div>
+			<ul id="sort">
+				<li class="vertical_line" style="float:left"></li>
+				<li id="sort_origin" class="sort_list">
+					<img src="images/sort_origin.png">
+				</li>
+				<li class="vertical_line"></li>
+				<li id="sort_sales" class="sort_list charts">
+					<img src="images/sort_sales.png">
+				</li>
+			</ul>
+			<div id="list_right">
+				<ul id="goods">
+
+				</ul>
+			</div>
+		</div>
+
+		<div id="selected">
+			<span id="selected_price">￥<span id="selected_priceSum">0</span></span>
+			<span id="selected_sum">0</span>
+		</div>
+	</div>
+	<div class="ball hide" id="ball"></div>
+	<!-- 底部 -->
+	<div id="bottom">
+		<span id="icon_home" class="icon">
+			<img src="images/banner_1.png">
+		</span>
+		<span id="icon_goods" class="icon">
+			<img src="images/banner_2_green.png">
+		</span>
+		<span id="icon_order" class="icon">
+			<img src="images/banner_3.png">
+		</span>
+		<span id="icon_trolley" class="icon">
+			<img src="images/banner_4.png">
+		</span>
+		<div id="banner_trolley_No"></div>
+		<span id="icon_mine" class="icon">
+			<img src="images/banner_5.png">
+		</span>
+	</div>
+</body>
+</html>

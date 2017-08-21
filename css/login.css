@@ -1,0 +1,115 @@
+ul, dl, dd, dt, ol, li, p, h1, h2, h3, h4, h5, h6, textarea, form, select, fieldset, table, td, div,span, input,body a{border:0;margin:0;padding:0;-webkit-text-size-adjust: none}
+h1, h2, h3, h4, h5, h6{font-size:12px;font-weight:normal}
+body>div{margin:0 auto}
+body{margin:0 auto;}
+div {text-align:left}
+a img input textarea select{border:0;display:block;}
+body {text-align: center;}
+ul, ol, li {list-style-type:none;vertical-align:0;display: block;}
+a {outline-style:none;color:white;text-decoration:none}
+a:hover { color: #D40000; text-decoration: none}
+table{border-style: none}
+*{margin:0;padding:0;}
+body{
+	overflow: scroll;
+	background-color: #fff;
+	font-family: "微软雅黑";
+	padding-bottom: 20px;
+	-webkit-overflow-scrolling: touch;
+	text-align: justfy;
+}
+.clear{
+  clear:both;
+}
+/*sign_top*/
+.l_sigup_top{
+  width:100%;
+  height:auto;
+}
+.l_signup_top img{
+  width：100%;
+}
+#l_signup_main{
+  width:100%;
+  background:#fff;
+}
+.l_psw_text{
+  width:70px;
+  margin:5% 0 5% 15%;
+  color:#999;
+  font-size: 14px;
+}
+.l_signup_input {
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+  height: 30px;
+  line-height: 30px;
+  text-indent: 10px;
+  border-style: none;
+  border-bottom: 1px solid #eee;
+}
+.l_psw_text_left {
+  width: 25%;
+  margin-left: 15%;
+  margin-top: 5%;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #999;
+  text-align: left;
+  display: inline-block;
+}
+.l_psw_text_right {
+  width: 30%;
+  margin-left: 15%;
+  margin-top: 5%;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #fdc121;
+  text-align: right;
+  display: inline-block;
+}
+.l_eye {
+    height: 30px;
+    right: 15%;
+    top: 59%;
+    position: absolute;
+    z-index: 99;
+}
+.l_btn {
+    width: 70%;
+    height: 35px;
+    line-height: 35px;
+    margin: 12px 15%;
+    background: #e12;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 4px;
+}
+.l_wechat_btn {
+  width: 70%;
+  height: 29px;
+  line-height: 29px;
+  margin: 15px 15%;
+  background: white;
+  border: 1px solid #e12;
+  color: #e12;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 4px;
+  display:none;
+}
+.l_sign_up {
+  width: 80%;
+  left: 10%;
+  font-size: 16px;
+  color: #e12;
+  text-align: center;
+  position: relative;
+  bottom: 3%;
+  z-index:1;
+}

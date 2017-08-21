@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="utf-8">
+    <title>搜索页面</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script src="js/inobounce.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+  </head>
+  <body>
+    <div id="animation"><img src="images/shuaxin.png"></div>
+    <!-- header -->
+    <div id="search_top">
+      <img id="back" src="images/icon_back.png">
+      <input id="search_input" type="search" placeholder="搜索商品">
+      <div id="search_btn" class="title_right">搜索</div>
+    </div>
+    <!-- 搜索中 -->
+    <div class="l_search" id="l_search">
+      <div id="l_search_text" class="l_search_item">搜索中...</div>
+      <div id="l_search_html" class="l_search_item">请输入要查找的商品的关键字</div>
+    </div>
+    <!-- main -->
+    <div class="main" id="main">
+      <div id="l_search_no"><img src="images/nothing.png" alt="">
+        <div class="l_search_no_text">没有找到商品<br>尝试找找其他想要的商品吧</div>
+      </div>
+      <div class="l_search_history">
+
+      </div>
+      <div class="search_list">
+
+      </div>
+    </div>
+    <!-- bottom -->
+    <div class="bottom" id="l_search_bottom">
+      <div class="l_clear" id="l_clear">清空历史搜索</div>
+    </div>
+  </body>
+</html>

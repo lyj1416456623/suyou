@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>注册</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/inobounce.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/signup.js"></script>
+  </head>
+<body>
+  <div id="animation"><img src="images/shuaxin.png"></div>
+  <div id="whole" class="hide" style="display: block;">
+		<div class="alert_common hide">注册成功</div>
+		<div class="alert_bg hide"></div>
+		<div id="signup_top">
+			<img class="signup_top" src="images/login_top.jpg" alt="">
+		</div>
+		<!-- <img src="images/icon.png" alt="" style="width: 40%;position: absolute;top: 12%;left: 31%;"> -->
+		<div id="signup_main">
+			<div style="margin: 7% 11% 3% 11%; border-bottom: 1px solid #eee;color:#eee;">
+				<span style="margin-left: 6%;color:#404040;">+86</span>&nbsp; | <input id="psw_phone_content" class="signup_input" type="text" value="请输入手机号码">
+			</div>
+      <!-- <div  class="psw_text">图片验证码</div> -->
+			<div style="text-align: center;">
+				<img id='validateCode' src="" alt="" title="" />
+			</div>
+			<input id="psw_Id_code" class="signup_input" type="text" autocomplete="off" value="请输入图片验证码" name="code"style="text-align: center;border-bottom: 1px solid #eee;margin-left: 11%;width: 78%;">
+			<div class="psw_btn" onclick="getRequestCode()">获取验证码</div>
+			<div style="margin:3% 11% 3% 11%; border-bottom: 1px solid #eee;color:#eee;">
+				<span style="margin-left: 6%;color:#404040;"><img src="images/yanzhengma@2x.png" alt="" style="width:44px;margin:0 -4% -2% -2%;"></span>&nbsp; | <input id="psw_Id_content" class="signup_input" type="text" value="请输入验证码">
+			</div>
+			<div class="psw_text">设置登录密码</div>
+			<div style="margin:3% 11% 3% 11%; border-bottom: 1px solid #eee;color:#eee;">
+				<span style="margin-left: 6%;color:#404040;"><img src="images/shezhimima@2x.png" alt="" style="width:44px;margin:0 -4% -2% -2%;"></span>&nbsp; | <input id="psw1_content" class="signup_input" type="text" value="请输入密码">
+        <span><img class="sign_eye" id="eye1" src="images/eye.png"></span>
+      </div>
+			<div style="margin:3% 11% 3% 11%; border-bottom: 1px solid #eee;color:#eee;">
+				<span style="margin-left: 6%;color:#404040;"><img src="images/querenmima@2x.png" alt="" style="width:44px;margin:0 -4% -2% -2%;"></span>&nbsp; | <input id="psw2_content" class="signup_input" type="text" value="请确认密码">
+        <span><img class="sign_eye" id="eye2" src="images/eye.png"></span>
+      </div>
+
+			<div class="btn" onclick="register()">注册</div>
+			<div class="psw_alert hide">验证码错误，或者已过期，请重新输入</div>
+		</div>
+		</div>
+</body>
+<script>
+$(function(){
+  var pswd_value=$("#psw_Id_content").attr("value");
+  var mobile_value=$("#psw_phone_content").attr("value");
+  var psw1_content=$("#psw1_content").attr("value");
+  var psw2_content=$("#psw1_content").attr("value");
+  var psw_Id_code=$("#psw_Id_code").attr("value");
+  if (pswd_value == "请输入验证码") {
+    $("#psw_Id_content").click(function(){
+      $(this).val("");
+      $(this).attr("Type","password");
+    });
+  };
+  if (mobile_value == "请输入手机号码") {
+    $("#psw_phone_content").click(function(){$(this).val("")});
+  };
+  if (psw1_content == "请输入密码") {
+    $("#psw1_content").click(function(){$(this).val("")});
+  };
+  if (psw2_content == "请输入密码") {
+    $("#psw2_content").click(function(){$(this).val("")});
+  };
+  if (psw_Id_code == "请输入图片验证码") {
+    $("#psw_Id_code").click(function(){$(this).val("")});
+  };
+
+})
+
+</script>
+</html>

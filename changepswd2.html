@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>密码修改</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
+  <script src="js/inobounce.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script src="js/changepswd2.js"></script>
+</head>
+<body>
+  <!-- 动画 -->
+  <div id="animation"><img src="images/shuaxin.png"></div>
+  <div id="whole" class="hide" style="display: block;">
+		<div class="alert_common hide">密码修改成功</div>
+		<div class="alert_bg hide"></div>
+		<div id="search_top">
+			<span id="title" class="title_mid">修改密码</span>
+			<img id="back" class="back" src="images/back_w.png">
+		</div>
+		<div id="main" class="order_detail_main">
+			<div class="psw_text">新密码</div>
+			<img class="eye" id="eye1" src="images/eye.png" style="top: 42px;">
+			<input id="psw1_content" class="psw_input" type="text" value="请输入新密码" style="margin-left:15%;">
+			<div class="psw_text">确认密码</div>
+			<img class="eye" id="eye2" src="images/eye.png" style="top: 120px;">
+			<input id="psw2_content" class="psw_input" type="text" value="请再次输入新密码" style="margin-left:15%;">
+			<div id="psw_next" class="btn" onclick="changePassword()">确认</div>
+			<!-- <div class="psw_alert hide">密码与确认密码不一致，请重新输入</div> -->
+		</div>
+		</div>
+</body>
+</html>

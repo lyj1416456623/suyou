@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="format-detection" content="telephone=no"/>
+  <meta charset="UTF-8">
+  <title>结算页面</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
+  <script src="js/inobounce.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- <script src="js/common.js"></script> -->
+  <script src="js/pay.js"></script>
+</head>
+<body>
+  <!-- 动画 -->
+  <div id="animation"><img src="images/shuaxin.png"></div>
+  <div class="alert_common hide">库存不足，下单失败！</div>
+	<div class="alert_bg hide"></div>
+  <!-- header -->
+  <div id="search_top">
+    <img id="back" src="images/icon_back.png">
+    <div class="l_fap_title">结算</div>
+  </div>
+  <div class="order_detail_main pay_main" id="main">
+    <div class="order_block">
+      <div class="order_block_item">
+        <div class="order_num order_border">
+          <span class="order_num_name" >当前小区</span>
+          <span class="order_num_number" id="address"></span>
+        </div>
+        <div class="order_num" id="send_type">
+          <span class="order_num_name">配送方式</span>
+          <!-- <span class="order_num_number pay_time pay_time_red " id="doorsend"></span>
+          <span class="order_num_number pay_time " id="shopus"></span> -->
+        </div>
+        <div class="order_num" id="send_us">
+          <div class="order_num_name" id="send_time">配送时段</div>
+          <div class="order_pay_timer"></div>
+          <div class="clear"></div>
+          <!-- <span class="order_num_number pay_time pay_time_send pay_time_red"></span>
+          <span class="order_num_number pay_time pay_time_send"></span>
+          <span class="order_num_number pay_time pay_time_send"></span> -->
+        </div>
+      </div>
+    </div>
+    <div class="order_block" id="order_ma">
+      <div class="order_block_item">
+        <div class="order_num">
+          <span class="order_num_name order_ma">收货人</span>
+          <span class="order_num_number" id="order_name"></span>
+          <span class="order_num_number" id="order_moblie"></span>
+        </div>
+        <div class="order_num" id="addressNum">
+          <span class="order_num_name">收货地址</span>
+          <span class="order_num_number" id="addressId"></span>
+          <span class="order_num_number" id="pay_address" style="margin-top:-20px;float:right"><img src="images/arrow.png" id="arrow"></span>
+        </div>
+      </div>
+    </div>
+    <div class="order_block" id="sinceNum" style="display:none">
+      <div class="order_block_item">
+        <div class="order_num">
+          <div class="order_num_name order_ma" style="float:left">自提点</div>
+          <div class="order_num_number" id="sinceSome" style="float:left;width:69%"></div>
+          <span class="order_num_number" id="pay_address" style="float:right"><img src="images/arrow.png" id="arrow"></span>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="order_block" id="add_address" style="display:none">
+      <div class="order_block_item">
+        <div class="order_num">
+          <span class="order_num_name order_ma">收货地址</span>
+          <span class="order_num_number" id="add_address_no">请添加收货地址</span>
+          <span class="order_num_number" id="pay_address"><img src="images/arrow.png" id="arrow"></span>
+        </div>
+      </div>
+    </div>
+    <div class="order_block">
+      <div class="order_block_item">
+        <div class="order_num">
+          <span class="order_num_name">订单金额</span>
+          <span class="order_num_number" id="order_price"></span>
+        </div>
+        <div class="order_num order_border">
+          <span class="order_num_name order_ma">配送费</span>
+          <span class="order_num_number" id="send_price"></span>
+          <span class="order_num_number" id="none_shop">满<span id="freefee"></span>元免运费，店铺自提无运费</span>
+        </div>
+        <div class="order_num order_border" id="order_coupon">
+          <span class="order_num_name">优惠方式</span>
+          <span class="order_num_number order_red" id="fee"></span>
+          <span class="order_num_number" id="pay_coupon"><img src="images/arrow.png"></span>
+        </div>
+        <div class="order_num order_border">
+          <span class="order_num_name">实付金额</span>
+          <span class="order_num_number order_red" id="atuoprice"></span>
+        </div>
+        <div class="order_num">
+          <span class="order_num_name">支付方式</span>
+          <span class="order_num_number pay_time pay_time_red" id="wx_pay">微信支付</span>
+          <span class="order_num_number pay_time " id="pay_money">货到付款</span>
+        </div>
+      </div>
+    </div>
+    <div class="order_detail_btn">提交订单</div>
+  </div>
+
+</body>
+<script type="text/javascript">
+$("#back").click(function(){
+  window.location="trolley.html";
+})
+// 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
+// var useragent = navigator.userAgent;
+//   console.log(useragent);
+//   if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+//     // 这里警告框会阻塞当前页面继续加载
+//   alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+//    // 以下代码是用javascript强行关闭当前页面
+//   var opened = window.open('about:blank', '_self');
+//   opened.opener = null;
+//   opened.close();
+// }
+</script>
+</html>

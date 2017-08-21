@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/inobounce.js"></script>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/fastclick.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/trolley.js"></script>
+</head>
+<body>
+	<div id="animation"><img src="images/shuaxin.png"></div>
+	<div class="alert_common hide">请先添加商品</div>
+	<div class="alert_bg hide"></div>
+	<div id="whole" class="hide">
+		<div id="search_top">
+			<span id="title" class="title_mid">购物车</span>
+			<!-- <span id="edit" class="edit">
+				<img style=" width: 60%; margin-left: 50%;margin-top:1px" src="images/bianjine_q.png" alt="">
+			</span> -->
+			<span id="edit" class="edit">编辑</span>
+			<span id="editFinish" class="edit hide">完成</span>
+		</div>
+		<div id="main" class="trolley_main">
+
+		</div>
+		<div id="trolley_selected" class="trolley_selected">
+			<span id="trolley_total" class="f_black trolley_total">商品总额</span>
+			<span id="trolley_selected_price" class="f_red">￥<span id="selected_priceSum">0</span></span>
+			<div id="trolley_selected_total" class="trolley_float">结算(<span id="trolley_NoTotal">0</span>)</div>
+			<div id="trolley_selected_total_clear" class="trolley_float" style="display:none">清空购物车</div>
+		</div>
+		<div class="ball hide" id="ball"></div>
+		<div id="bottom">
+			<span id="icon_home" class="icon">
+				<img src="images/banner_1.png">
+			</span>
+			<span id="icon_goods" class="icon">
+				<img src="images/banner_2.png">
+			</span>
+			<span id="icon_order" class="icon">
+				<img src="images/banner_3.png">
+			</span>
+			<span id="icon_trolley" class="icon">
+				<img src="images/banner_4_green.png">
+			</span>
+			<div id="banner_trolley_No"></div>
+			<span id="icon_mine" class="icon">
+				<img src="images/banner_5.png">
+			</span>
+		</div>
+	</div>
+</body>
+<script>
+	$(function() {
+		$("#whole").fadeIn(200);
+		// $("#icon_goods").click(function(){window.location = "goods.html";});
+	});
+</script>
+</html>

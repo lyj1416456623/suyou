@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>微信支付</title>
+    <script type="text/javascript">
+        //调用微信JS api 支付
+        function jsApiCall()
+        {
+            WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest',
+                    <?php echo 33; ?>,
+                    function(res){
+                        WeixinJSBridge.log(res.err_msg);
+                        alert(res.err_code+res.err_desc+res.err_msg);
+                    }
+            );
+        }
+
+        function callpay()
+        {
+            alert("ddd");
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            }else{
+                jsApiCall();
+            }
+        }
+    </script>
+    <style>
+        /*提交订单*/
+        .submit-title{
+            padding:30px 0 10px;
+            width:100%;
+            text-align:center;
+            line-height: 30px;
+            font-size:24px;
+        }
+        .submit-price{
+            text-align:center;
+            font-size:46px;
+        }
+        .submit_pay{
+            width:100%;
+            height:60px;
+            background:#fff;
+            margin-top:30px;
+            border:1px solid #fafafa;
+            line-height:60px;
+            font-size:18px;
+        }
+        .submit_pay_left{
+            float:left;
+            padding-left:30px;
+            color:#999;
+        }
+        .submit_pay_right{
+            float:right;
+            padding-right:30px;
+        }
+        .submit{
+            width:80%;
+            height:50px;
+            background:#e12;
+            margin:45px auto;
+            border-radius:5px;
+            text-align: center;
+            line-height: 50px;
+            color:#fff;
+        }
+    </style>
+
+</head>
+
+
+<body style="background:#eee">
+<div class="submit-title">一橙科技</div>
+<div class="submit-price">￥4</div>
+<div class="submit_pay">
+    <div class="submit_pay_left">收款方</div>
+    <div class="submit_pay_right">一橙科技</div>
+</div>
+<div class="submit"  onclick="callpay()" >立即支付</div>
+</body>
+</html>

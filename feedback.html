@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>意见反馈页</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
+  <script src="js/inobounce.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script src="js/feedback.js"></script>
+</head>
+<body>
+  <!-- 动画 -->
+  <div id="animation"><img src="images/shuaxin.png"></div>
+  <div class="alert_common hide">提交反馈成功</div>
+  <div class="alert_bg hide"></div>
+  <div id="search_top">
+    <img id="back" src="images/icon_back.png">
+    <div class="l_fap_title">意见反馈</div>
+  </div>
+  <div class="main" id="main">
+    <div class="l_feedback_title">请填写您的意见或建议</div>
+    <textarea name="feedback" rows="8" cols="40" class="l_feedback_text" id="feedback_content">请在此处留下您的宝贵意见，我们将会不断优化用户体验（长度在10-300字之间）</textarea>
+    <div class="l_feedback_contact">如有疑问，您可以直接联系客服</div>
+    <div class="clear"></div>
+    <div class="l_feedback_submit" onclick="addAdvice()">提交</div>
+  </div>
+</body>
+</html>

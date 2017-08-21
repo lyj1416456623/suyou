@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="utf-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="l_signup_top">
+      <img src="images/login_top.jpg" alt="" />
+    </div>
+    <div id="l_signup_main">
+			<div class="l_psw_text">账号</div>
+			<input id="l_mobile" class="l_signup_input" type="text" value="请输入手机号码">
+			<div class="l_psw_text_left">密码</div>
+			<div class="l_psw_text_right">忘记密码</div>
+			<img class="l_eye" id="l_eye" src="images/eye.png">
+			<input id="l_password" class="l_signup_input" type="password" value="请输入密码">
+			<div class="l_btn">登录</div>
+			<div class="l_wechat_btn">微信登录</div>
+			<div class="l_sign_up">没有账号？快去注册</div>
+		</div>
+  </body>
+  <script type="text/javascript">
+  // 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
+  var useragent = navigator.userAgent;
+    console.log(useragent);
+    if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+      // 这里警告框会阻塞当前页面继续加载
+    alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+     // 以下代码是用javascript强行关闭当前页面
+    var opened = window.open('about:blank', '_self');
+    opened.opener = null;
+    opened.close();
+ }
+  </script>
+</html>

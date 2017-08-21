@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择小区</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/inobounce.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="http://maps.google.cn/maps/api/js?sensor=false"></script> -->
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+	<script src="js/common.js"></script>
+	<!-- <script src="js/selectapt.js"></script> -->
+</head>
+<body>
+	<div id="animation"><img src="images/shuaxin.png"></div>
+	<div class="alert_common hide">没有该小区</div>
+	<div class="alert_bg hide"></div>
+	<div id="whole">
+		<div id="search_top">
+			<h4 id="title" class="title_mid">选择小区</h4>
+			<img id="back" class="back" src="images/icon_back.png">
+		</div>
+		<div id="main" class="selectmain">
+			<div id="search_address">
+				<input id="search_input" type="search" placeholder="请输入小区名" style="border:1px solid #eee">
+				<div id="search_address_txt" onclick="fixedposition(getCommunityList)">搜 索</div>
+			</div>
+			<div id="selectApt_middle">
+				<span>搜索或选择附近小区、商圈</span>
+				<img id="navigation_image" onclick="fixedposition(getCommunityListByPosition)" src="images/navigationon.png">
+			</div>
+			<div id="selectApt_btm" >
+				<!-- <span>育新花园<span class='distance'>1km</span></span>
+				<span>龙泽花园<span class='distance'>1.2km</span></span> -->
+				<!-- <div id="result-div"></div> -->
+			</div>
+			<div id="result-div"></div>
+			<div class="alert_confirm hide">
+				<div class="alert_main">
+					<div class="alert_title">确认小区</div>
+					<div class="alert_apt hide" id="alert_apt_id"></div>
+					<div class="alert_apt" id="alert_apt_name"></div>
+					<div class="alert_content">
+						小区地址会影响您的配送方式<br>
+						请您确认信息无误<br>
+						您也可以在首页中修改当前小区<br>
+					</div>
+					<div class="alert_red" id="alert_red">确认</div>
+					<div class="alert_white" id="alert_white">取消</div>
+				</div>
+				<div class="alert_bg"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+var form;
+if(localStorage.getItem("form")){
+	form=localStorage.getItem("form");
+}
+var add;
+if(localStorage.getItem("add")){
+	add=localStorage.getItem("add");
+}
+var id;
+if(localStorage.getItem("editId")){
+	id=localStorage.getItem("editId");
+}
+
+if(localStorage.getItem("indexEnter")){
+	var indexEnter=localStorage.getItem("indexEnter");
+}
+// alert(indexEnter);
+pushHistory();
+window.addEventListener("popstate", function(e) {
+	// alert(indexEnter);
+	if(indexEnter=="true"){
+		window.location=index.html;
+	}else if(indexEnter==undefined){
+		if(add=="true"){
+			window.location="editaddress.html?id=" + id;
+		}
+		if(add=="false"){
+			window.location="addaddress.html";
+		}
+	}
+
+}, false);
+function pushHistory() {
+	var state = {
+		title: "title",
+		url: "#"
+	};
+	window.history.pushState(state, "title", "#");
+}
+	var map = new BMap.Map("selectApt_btm");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
+
+	var geolocation = new BMap.Geolocation();
+	function fixedposition(callback) {
+		console.log(callback);
+		if(navigator.geolocation){
+		// 	geolocation.getCurrentPosition(
+		// 		function(r){
+		// 			if(this.getStatus() == BMAP_STATUS_SUCCESS){
+		// 				var mk = new BMap.Marker(r.point);
+		// 				map.addOverlay(mk);
+		// 				map.panTo(r.point);
+		// 				// $('#result-div').html('您的位置：'+r.point.lng+','+r.point.lat);
+		// 				getCommunityListByPosition(r.point.lat, r.point.lng);
+		// 			}
+		// 			else {
+		// 				$('#result-div').html('failed'+this.getStatus());
+		// 				// $('#result-div').append(r);
+		// 			}
+		// },{enableHighAccuracy: true})
+		// $('#result-div').append("<br>ended");
+				navigator.geolocation.getCurrentPosition(
+					function(p){
+						console.log("222222222222");
+							callback(p.coords.latitude, p.coords.longitude);
+					},
+					function(e){
+						$("#navigation_image").attr('src', "images/navigationoning.png");
+							var msg = e.code + "\n" + e.message;
+					}
+				);
+		}
+
+	}
+
+	var path="http://api.suyousc.com/index.php";
+	var token = localStorage.token;
+	//ajax异步通信，通过关键字获取小区列表
+	function getCommunityList(latitude, longitude){
+		var latitude   = latitude;	//纬度
+		var longtitude = longitude;	//经度
+
+		var urlPara = "keyword=" + document.getElementById("search_input").value.replace(/(^\s*)|(\s*$)/g, '');
+		var url = path+ "?m=community&f=getCommunityList&" + urlPara;
+		$.ajax({
+			type: "get",		//使用get方法访问后台
+			dataType: "json",	//返回json格式的数据
+			url: url,			//要访问的后台地址
+			data: "",			//要发送的数据
+			success: function(result) {
+				$("#selectApt_btm").html("");//清空selectApt_btm内容
+				var json = result.data;
+				console.log(json);
+				if(json.total<1){
+					$(".alert_common").fadeIn(200);
+          $(".alert_bg").fadeIn(200);
+          setTimeout(function(){
+            $(".alert_common").fadeOut(200);
+            $(".alert_bg").fadeOut(200);
+          },2000);
+				}
+				$.each(json.communities, function(i, item) {
+					//计算两点之间的距离
+					var distance = getGreatCircleDistance(item.latitude, item.longtitude, latitude, longitude) / 1000.0;
+					$("#selectApt_btm").append(
+						"<span onclick='openConfirmWindow(" + item.id + ",\"" + item.name + "\")'>" + item.name + "<span class='distance'>" + distance.toFixed(1) + "km</span></span>"
+					);
+				});
+				//显示定位成功
+				// $("#navigation_image").attr('src', "images/navigationon_success.png");
+			},
+			error: function (xhr, textStatus, errorThrow) {
+
+				// $("#navigation_image").attr('src', "images/navigationon_fail.png");
+		    }
+		});
+	}
+	//ajax异步通信，通过经纬度获取小区列表
+	function getCommunityListByPosition(latitude, longitude){
+		var latitude   = latitude;	//纬度
+		var longtitude = longitude;	//经度
+		var url = path+"?m=community&f=getCommunityListByPosition&latitude=" + latitude + "&longtitude=" + longtitude;
+		$.ajax({
+			type: "get",		//使用get方法访问后台
+			dataType: "json",	//返回json格式的数据
+			url: url,			//要访问的后台地址
+			data: "",			//要发送的数据
+			success: function(result) {
+
+				$("#selectApt_btm").html("");//清空selectApt_btm内容
+				var json = result.data;
+				// $('#result-div').html("RESULT"); // + JSON.stringify(json));
+
+				$.each(json.communities, function(i, item) {
+					//计算两点之间的距离
+					// console.log(item)
+					var distance = getGreatCircleDistance(item.latitude, item.longtitude, latitude, longitude) / 1000.0;
+					$("#selectApt_btm").append(
+						"<span onclick='openConfirmWindow(" + item.id + ",\"" + item.name + "\")'>" + item.name + "<span class='distance'>" + distance.toFixed(1) + "km</span></span>"
+					);
+					// $('#result-div').append('<br>' + item.name );
+				});
+
+				//显示定位成功
+				$("#navigation_image").attr('src', "images/navigationon_success.png");
+			},
+			error: function (xhr, textStatus, errorThrow) {
+			    //alert(xhr.readyState);
+					// $('#result-div').html("failed");
+			    //显示定位失败
+				$("#navigation_image").attr('src', "images/navigationon_fail.png");
+			}
+		});
+	}
+	var EARTH_RADIUS = 6378137.0;    //单位M
+	var PI = Math.PI;
+  function getRad(d){
+      return d*PI/180.0;
+  }
+	function getGreatCircleDistance(lat1, lng1, lat2, lng2){
+			var radLat1 = getRad(lat1);
+			var radLat2 = getRad(lat2);
+
+			var a = radLat1 - radLat2;
+			var b = getRad(lng1) - getRad(lng2);
+
+			var s = 2*Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) + Math.cos(radLat1)*Math.cos(radLat2)*Math.pow(Math.sin(b/2),2)));
+			s = s*EARTH_RADIUS;
+			s = Math.round(s*10000)/10000.0;
+			return s;
+	}
+	function openConfirmWindow(communityId, communityName){
+		$("#alert_apt_id").text(communityId);
+		$("#alert_apt_name").text(communityName);
+		$(".alert_confirm").show();
+	}
+
+	// 确认选择小区
+	$("#alert_red").click(function(){
+			var communityId   = $("#alert_apt_id").text();
+			var communityName = $("#alert_apt_name").text();
+			console.log(communityId, communityName);
+			if (token != ""){
+				var headers = {};
+				headers["token"] = token;
+				var url  = path + "?m=user&f=selectCommunity";
+				var data = '{"data": {"communityId":"' + communityId +'"}}';
+				console.log(data);
+				$.ajax({
+					type: "post",		//使用post方法访问后台
+					dataType: "json",	//返回json格式的数据
+					url: url,			//要访问的后台地址
+					data: data,			//要发送的数据
+					headers: headers,	//要发送的header数据
+					success: function(result) {
+						console.log(result)
+						if (result.msg == "更新成功！"){
+							// 保存当前选择的小区到localstorage
+							if(form=="true"){
+								console.log("aaaa");
+								localStorage.setItem('community_info', JSON.stringify({"communityId": communityId,"communityName": communityName}));
+								localStorage.setItem('communityInfo', JSON.stringify({"communityId": communityId,"communityName": communityName}));
+
+							}else{
+								localStorage.setItem('community_info', JSON.stringify({"communityId": communityId,"communityName": communityName}));
+							}
+
+							history.back(-1);
+						}
+						if (result.msg == "不能识别的用户!"){
+							console.log(1);
+							// 保存当前选择的小区到localstorage
+							localStorage.setItem('community_info', JSON.stringify({
+									"communityId": communityId,
+									"communityName": communityName
+								})
+							);
+							console.log(1);
+							history.back(-1);
+						}
+					},
+					error: function (xhr, textStatus, errorThrow) {
+					    //alert(xhr.readyState);
+							console.log(errorThrow)
+					}
+				});
+			}
+		});
+
+	$("#alert_white").click(function(){
+		$(".alert_confirm").hide();
+	});
+	$("#search_input").click(function(){
+		$(this).val("");
+	})
+</script>
+
+</html>

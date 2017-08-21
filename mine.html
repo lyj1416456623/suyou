@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+    <meta charset="utf-8">
+    <title>我的</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script src="js/inobounce.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/mine.js"></script>
+  </head>
+  <body>
+    <!-- 动画 -->
+    <div id="animation"><img src="images/shuaxin.png"></div>
+    <!-- header -->
+    <div id="search_top">
+      <img id="logOut" src="images/9.png">
+      <div class="l_goods_detail">我的</div>
+      <img id="message" src="images/6.png">
+      <div id="message_No" style=""></div>
+    </div>
+    <!--main  -->
+    <div class="main" id="main">
+      <div class="l_photo">
+        <img src="images/icon_user.png" alt="" />
+        <div class="update_pwd" id="userId"></div>
+        <div class="update_pwd">
+          修改密码
+        </div>
+      </div>
+      <div class="mine_list" id="myaddress">
+        <img src="images/myaddress.png"/>
+        <span class="more_arrow"><img src="images/arrow.png"></span>
+      </div>
+      <div class="mine_list" id="mycoupon">
+        <img src="images/mycoupon.png"/>
+        <span id="coupon_No"></span>
+        <span class="more_arrow"><img src="images/arrow.png"></span>
+      </div>
+      <div class="mine_list" id="fap">
+        <img src="images/faq.png"/>
+        <span class="more_arrow"><img src="images/arrow.png"></span>
+      </div>
+      <div class="mine_list" id="help" onclick="contactUs();">
+        <img src="images/help.png"/>
+        <span class="more_arrow"><img src="images/arrow.png"></span>
+      </div>
+      <div class="mine_list" id="feedback">
+        <img src="images/feedback.png"/>
+        <span class="more_arrow"><img src="images/arrow.png"></span>
+      </div>
+      <div class="version" id="version">版本信息：0.3.1 0572</div>
+    </div>
+    <!-- 注销 -->
+    <div class="loginout" id="loginout">
+      <div class="l_loginout">
+        <div class="l_loginout_title">温馨提示</div>
+        <div class="l_loginout_content">注销账号，将清空您<br>的账号信息，是否要继续？</div>
+        <div class="l_yes_btn" id="l_yes_btn">确定</div>
+        <div class="l_no_btn" id="l_no_btn">取消</div>
+      </div>
+    </div>
+    <!-- 底部 -->
+    <div id="bottom">
+  		<span id="icon_home" class="icon">
+  			<img src="images/banner_1.png">
+  		</span>
+  		<span id="icon_goods" class="icon">
+  			<img src="images/banner_2.png">
+  		</span>
+  		<span id="icon_order" class="icon">
+  			<img src="images/banner_3.png">
+  		</span>
+  		<span id="icon_trolley" class="icon">
+  			<img src="images/banner_4.png">
+  		</span>
+      <div id="banner_trolley_No"></div>
+  		<span id="icon_mine" class="icon">
+  			<img src="images/banner_5_green.png">
+  		</span>
+  	</div>
+  </body>
+</html>
