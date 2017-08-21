@@ -1,43 +1,88 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet"href="./css/base.css"/>
-    
-</head>
-<title>saolei</title>
-<body>
-	<div id="da">
-		<div id="kuang">
-			<div id="xiao">
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-                <div class="item"></div>
-			</div>
-		</div>
-			
-	</div>
-</body>
-<script src="./js/base.js"></script>
+  <head>
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="utf-8">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script src="js/inobounce.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/fastclick.js"></script>
+    <script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+  </head>
+  <body>
+    <!-- 动画 -->
+    <div id="animation"><img src="images/shuaxin.png"></div>
+    <div class="alert_common hide">此商品已售完</div>
+    <div class="alert_bg hide"></div>
+    <!-- header -->
+    <div id="top">
+      <img id="location" src="images/location_white.png">
+      <img id="search" src="images/search1.png">
+      <img id="message" src="images/7.png">
+      <div class="message_num" id="message_num"></div>
+    </div>
+    <!-- 内容 -->
+    <div id="l_main" style="overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;">
+      <div id="i_banner">
+        <div class="i_banner_img" id="ad1">
+          <ul>
+          </ul>
+        </div>
+        <div class="i_icon" id="circle">
+          <ul></ul>
+        </div>
+      </div>
+      <!-- 商品分类 -->
+      <div id="items"></div>
+      <!--  广告  -->
+      <div id="i_banner1">
+        <div class="i_banner_img" id="ad2">
+          <ul>
+          </ul>
+        </div>
+        <div class="i_icon" id="circle1">
+          <ul></ul>
+        </div>
+      </div>
+      <!--  活动专区  -->
+      <div id="theme" class="theme1 theme">
+        <span> 活动专区</span>
+      </div>
+      <div id="l_blocks"></div>
+      <!-- 精品热销 -->
+      <div id="theme1" class="theme theme1">
+        <span>精品热销</span>
+      </div>
+      <div id="l_hots"></div>
+
+  </div>
+  <div class="ball hide" id="ball"></div>
+  <!-- 底部 -->
+    <div id="bottom">
+      <span id="icon_home" class="icon">
+        <img src="images/banner_1_green.png">
+      </span>
+      <span id="icon_goods" class="icon">
+        <img src="images/banner_2.png">
+      </span>
+      <span id="icon_order" class="icon">
+        <img src="images/banner_3.png">
+      </span>
+      <span id="icon_trolley" class="icon">
+        <img src="images/banner_4.png">
+      </span>
+      <div id="banner_trolley_No"></div>
+      <span id="icon_mine" class="icon">
+        <img src="images/banner_5.png">
+      </span>
+    </div>
+
+  </body>
+
 </html>
